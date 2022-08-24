@@ -1,35 +1,27 @@
 import { sequelize } from '../Config/db.sequelize.js'
 import { DataTypes, Model } from 'sequelize'
 
-class SongModel extends Model {}
+class ArtistModel extends Model {}
 
-SongModel.init({
+ArtistModel.init({
 	id: {
 		type: DataTypes.INTEGER,
 		autoIncrement: true,
 		allowNull: false,
 		primaryKey: true
 	},
-	title: {
+	name: {
 		type: DataTypes.STRING,
 		allowNull: false,
 		defaultValue: 'Ikke navngivet'
-	},
-	content: {
-		type: DataTypes.TEXT,
-		allowNull: true
-	},
-	artist_id: {
-		type: DataTypes.INTEGER,
-		allowNull: false
 	}
 }, {
 	sequelize,
-	modelName: 'song',
+	modelName: 'artist',
 	freezeTableName: true,
 	underscored: true,
 	createdAt: false,
 	updatedAt: false
 })
 
-export default SongModel
+export default ArtistModel
