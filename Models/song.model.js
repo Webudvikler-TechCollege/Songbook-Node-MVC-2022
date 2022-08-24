@@ -1,9 +1,12 @@
 import { sequelize } from '../Config/db.sequelize.js'
 import { DataTypes, Model } from 'sequelize'
 
+// Skriver ny klasse og udvider den med SQ's Model klasse
 class SongModel extends Model {}
 
+// Initialiserer model
 SongModel.init({
+	// Definerer felt egenskaber
 	id: {
 		type: DataTypes.INTEGER,
 		autoIncrement: true,
@@ -24,12 +27,12 @@ SongModel.init({
 		allowNull: false
 	}
 }, {
-	sequelize,
-	modelName: 'song',
-	freezeTableName: true,
-	underscored: true,
-	createdAt: false,
-	updatedAt: false
+	sequelize, // Sequelize objekt
+	modelName: 'song', // Model (tabel) navn
+	freezeTableName: true, // Lås tabelnavne til ental
+	underscored: true, // Brug underscore istedet for camelcase
+	createdAt: false, // Undlad createdAt felt
+	updatedAt: false //Undlad updatedAt felt
 })
 
 export default SongModel
