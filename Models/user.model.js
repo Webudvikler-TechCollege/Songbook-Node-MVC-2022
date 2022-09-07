@@ -42,10 +42,13 @@ UserModel.init({
 	underscored: true, // Brug underscore istedet for camelcase
 	createdAt: true, // Undlad createdAt felt
 	updatedAt: true, //Undlad updatedAt felt
+	// Hooks til hash af password i create/update situationer
 	hooks: {
+		// Create
 		beforeCreate: async (user, options) => {
 			user.password = await createHash(user.password)
 		},
+		// Update
 		beforeUpdate: async (user, options) => {
 			user.password = await createHash(user.password)
 		}
