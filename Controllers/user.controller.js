@@ -2,23 +2,41 @@ import { Sequelize } from 'sequelize'
 import UserModel from '../Models/user.model.js'
 
 class UserController {
-	// Constructor - kaldes med instans af klassen
+	/**
+	 * Class Constructor
+	 */
 	constructor() {
 		console.log('Instance call of User Controller');
 	}
 
+	/**
+	 * List Metode - henter alle brugere
+	 * @param {object} req Request Object
+	 * @param {object} res Response Object
+	 */
 	list = async (req, res) => {
 		const result = await UserModel.findAll()
 		res.json(result)
 	}
 
-	get = async (req, res) => {
+	/**
+	 * Get Metode - henter brugers detaljer ud fra id
+	 * @param {object} req Request Object
+	 * @param {object} res Response Object
+	 */
+	 get = async (req, res) => {
 		const result = await UserModel.findOne({
 			where: { id: req.params.id }
 		})
 		res.json(result)
 	}
 
+	/**
+	 * Create Metode - opretter ny bruger
+	 * @param {object} req Request Object
+	 * @param {object} res Response Object
+	 * @return {number} Returnerer nyt id
+	 */
 	create = async (req, res) => {
 		const { firstname, lastname, email, password } = req.body
 
@@ -30,6 +48,11 @@ class UserController {
 		}
 	}
 
+	/**
+	 * Update Metode - opdaterer bruger
+	 * @param {object} req Request Object
+	 * @param {object} res Response Object
+	 */	
 	update = async (req, res) => {
 		const { firstname, lastname, email, password } = req.body
 
@@ -44,6 +67,11 @@ class UserController {
 		}
 	}
 
+	/**
+	 * Delete Metode - sletter bruger ud fra id i url parameter
+	 * @param {object} req Request Object
+	 * @param {object} res Response Object
+	 */	
 	delete = async (req, res) => {
 		try {
 			await UserModel.destroy({ 
