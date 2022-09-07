@@ -31,8 +31,8 @@ SongModel.init({
 	modelName: 'song', // Model (tabel) navn
 	freezeTableName: true, // Lås tabelnavne til ental
 	underscored: true, // Brug underscore istedet for camelcase
-	createdAt: false, // Undlad createdAt felt
-	updatedAt: false //Undlad updatedAt felt
+	createdAt: true, // Undlad createdAt felt
+	updatedAt: true //Undlad updatedAt felt
 })
 
 export default SongModel

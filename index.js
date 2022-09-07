@@ -2,6 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv';
 import { router as SongRouter } from './Routes/song.router.js'
 import { router as ArtistRouter } from './Routes/artist.router.js'
+import { router as UserRouter } from './Routes/user.router.js'
+import { router as InitRouter } from './Routes/init.sequelize.router.js'
+import { router as AuthRouter } from './Routes/auth.router.js'
 
 // Kalder express objekt
 const app = express();
@@ -22,6 +25,9 @@ app.use((req, res, next) => {
 })
 
 // App setting som giver adgang til vores custom routes
+app.use(InitRouter);
+app.use(AuthRouter);
+app.use(UserRouter);
 app.use(SongRouter);
 app.use(ArtistRouter);
 

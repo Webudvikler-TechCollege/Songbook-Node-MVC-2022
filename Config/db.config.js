@@ -2,6 +2,10 @@ import mysql from 'mysql'
 import dotenv from 'dotenv'
 dotenv.config()
 
+/**
+ * Simpelt eksempel på en config fil 
+ * Bruges sammen med almindelige SQL modeller
+ */
 
 const db = mysql.createConnection({
 	host: process.env.DB_HOST,

@@ -1,5 +1,10 @@
 import db from '../Config/db.config.js'
 
+/**
+ * Eksempel på en objektorienteret model 
+ * med manuelle SQL statements og queries
+ */
+
 class SongModel {
 	constructor() {
 		console.log('Instance call of Song Model');
