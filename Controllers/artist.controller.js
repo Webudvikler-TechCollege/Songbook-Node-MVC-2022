@@ -1,4 +1,3 @@
-import { Sequelize } from 'sequelize'
 import ArtistModel from '../Models/artist.model.js'
 
 class ArtistController {

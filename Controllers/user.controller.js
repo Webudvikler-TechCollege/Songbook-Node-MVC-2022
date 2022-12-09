@@ -1,4 +1,3 @@
-import { Sequelize } from 'sequelize'
 import UserModel from '../Models/user.model.js'
 
 class UserController {

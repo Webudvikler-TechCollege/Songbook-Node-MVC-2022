@@ -14,7 +14,8 @@ const verifyToken = (req, res, next) => {
 	// Tjekker at bearer har en valid værdi
 	if(typeof bearerHeader !== 'undefined') {
 		// Splitter token string fra bearer og assigner token string til var
-		const requestToken = bearerHeader.split(' ')[1]
+		const requestToken = bearerHeader.substr(7) // Remove "Bearer "
+
 		// Validerer token op mod .env private key
 		jwt.verify(requestToken, process.env.PRIVATE_KEY, (err, data) => {
 			if(!err) {
